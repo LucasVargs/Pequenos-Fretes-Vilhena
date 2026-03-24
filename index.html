@@ -1,0 +1,195 @@
+export default function FreteStradaSite() {
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900">
+      <header className="bg-white/95 backdrop-blur border-b border-slate-200 sticky top-0 z-20">
+        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+          <div>
+            <h1 className="text-xl md:text-2xl font-bold tracking-tight">Fretes com Strada</h1>
+            <p className="text-sm text-slate-600">Serviço local • Fiat Strada cabine simples</p>
+          </div>
+          <a
+            href="#contato"
+            className="rounded-2xl px-4 py-2 text-sm font-semibold shadow-sm border border-slate-300 hover:bg-slate-100 transition"
+          >
+            Solicitar orçamento
+          </a>
+        </div>
+      </header>
+
+      <section className="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span className="inline-flex items-center rounded-full border border-slate-300 px-3 py-1 text-sm font-medium text-slate-700 bg-white">
+            Fretes a partir de R$ 50
+          </span>
+          <h2 className="mt-5 text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+            Frete rápido, prático e com preço justo na sua cidade
+          </h2>
+          <p className="mt-5 text-lg text-slate-600 leading-8">
+            Faço fretes locais com <strong>Fiat Strada cabine simples</strong>, ideal para pequenas mudanças,
+            entrega de móveis, eletrodomésticos, materiais e encomendas em geral.
+          </p>
+
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <a
+              href="#contato"
+              className="rounded-2xl px-6 py-3 text-base font-semibold shadow-lg bg-slate-900 text-white hover:opacity-90 transition text-center"
+            >
+              Pedir orçamento agora
+            </a>
+            <a
+              href="#servicos"
+              className="rounded-2xl px-6 py-3 text-base font-semibold border border-slate-300 bg-white hover:bg-slate-100 transition text-center"
+            >
+              Ver serviços
+            </a>
+          </div>
+
+          <div className="mt-10 grid grid-cols-3 gap-4">
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
+              <p className="text-2xl font-bold">R$ 50+</p>
+              <p className="text-sm text-slate-600 mt-1">Preço inicial</p>
+            </div>
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
+              <p className="text-2xl font-bold">Local</p>
+              <p className="text-sm text-slate-600 mt-1">Atendimento na região</p>
+            </div>
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
+              <p className="text-2xl font-bold">Rápido</p>
+              <p className="text-sm text-slate-600 mt-1">Agendamento fácil</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-100 rounded-[2rem] blur-2xl opacity-60" />
+          <div className="relative bg-white rounded-[2rem] border border-slate-200 shadow-xl p-6 md:p-8">
+            <div className="rounded-[1.5rem] border border-dashed border-slate-300 bg-slate-50 p-8 min-h-[360px] flex flex-col justify-center">
+              <div className="text-6xl mb-4">🚚</div>
+              <h3 className="text-2xl font-bold">Fiat Strada cabine simples</h3>
+              <p className="mt-3 text-slate-600 leading-7">
+                Ideal para fretes rápidos, transporte de mercadorias e pequenas mudanças com atendimento direto e sem burocracia.
+              </p>
+              <ul className="mt-6 space-y-3 text-slate-700">
+                <li>✔ Entregas locais</li>
+                <li>✔ Pequenas mudanças</li>
+                <li>✔ Transporte de móveis e eletrodomésticos</li>
+                <li>✔ Atendimento com orçamento rápido</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicos" className="bg-white border-y border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 py-16">
+          <div className="max-w-2xl">
+            <h3 className="text-3xl md:text-4xl font-bold tracking-tight">Serviços</h3>
+            <p className="mt-3 text-slate-600 text-lg">
+              Atendimento para quem precisa de um frete local com agilidade e segurança.
+            </p>
+          </div>
+
+          <div className="mt-10 grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'Pequenas mudanças',
+                text: 'Transporte de poucos itens, caixas, móveis desmontados e objetos do dia a dia.',
+              },
+              {
+                title: 'Entrega de móveis e eletrodomésticos',
+                text: 'Levo sofá, cama, geladeira, fogão, máquina de lavar e outros itens de pequeno e médio porte.',
+              },
+              {
+                title: 'Mercadorias e encomendas',
+                text: 'Frete para lojas, materiais, compras e entregas rápidas dentro da cidade e região próxima.',
+              },
+            ].map((item) => (
+              <div key={item.title} className="rounded-3xl p-6 border border-slate-200 shadow-sm bg-slate-50">
+                <h4 className="text-xl font-bold">{item.title}</h4>
+                <p className="mt-3 text-slate-600 leading-7">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="rounded-3xl bg-slate-900 text-white p-8 shadow-xl">
+            <h3 className="text-3xl font-bold tracking-tight">Por que contratar?</h3>
+            <div className="mt-6 space-y-4 text-slate-200">
+              <p>• Atendimento direto com quem faz o frete</p>
+              <p>• Orçamento rápido e sem enrolação</p>
+              <p>• Preço inicial acessível</p>
+              <p>• Agilidade para fretes locais</p>
+            </div>
+          </div>
+
+          <div className="rounded-3xl bg-white border border-slate-200 p-8 shadow-sm">
+            <h3 className="text-3xl font-bold tracking-tight">Como funciona</h3>
+            <div className="mt-6 space-y-5">
+              <div>
+                <p className="font-semibold">1. Envie sua solicitação</p>
+                <p className="text-slate-600 mt-1">Informe o item, o local de coleta e o destino.</p>
+              </div>
+              <div>
+                <p className="font-semibold">2. Receba o orçamento</p>
+                <p className="text-slate-600 mt-1">O valor é calculado conforme distância, volume e dificuldade de carregamento.</p>
+              </div>
+              <div>
+                <p className="font-semibold">3. Agende o frete</p>
+                <p className="text-slate-600 mt-1">Combinamos o melhor horário para coleta e entrega.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contato" className="bg-slate-900 text-white">
+        <div className="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h3 className="text-3xl md:text-4xl font-bold tracking-tight">Peça seu orçamento</h3>
+            <p className="mt-4 text-slate-300 text-lg leading-8">
+              Fretes locais com atendimento rápido. Entre em contato para consultar disponibilidade e valor.
+            </p>
+          </div>
+
+          <div className="bg-white text-slate-900 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="space-y-4">
+              <div>
+                <p className="text-sm font-medium text-slate-500">WhatsApp</p>
+                <p className="text-xl font-bold">(SEU NÚMERO AQUI)</p>
+              </div>
+              <div>
+                <p className="text-sm font-medium text-slate-500">Área de atendimento</p>
+                <p className="text-lg font-semibold">Sua cidade e região</p>
+              </div>
+              <div>
+                <p className="text-sm font-medium text-slate-500">Valor inicial</p>
+                <p className="text-lg font-semibold">Fretes a partir de R$ 50</p>
+              </div>
+            </div>
+
+            <a
+              href="https://wa.me/5500000000000"
+              className="mt-6 inline-block w-full text-center rounded-2xl px-6 py-3 text-base font-semibold shadow-lg bg-slate-900 text-white hover:opacity-90 transition"
+            >
+              Chamar no WhatsApp
+            </a>
+
+            <p className="mt-4 text-sm text-slate-500 leading-6">
+              Substitua o número do WhatsApp e a cidade pelas suas informações reais antes de publicar.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-slate-950 text-slate-400">
+        <div className="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row gap-2 md:items-center md:justify-between">
+          <p>© 2026 Fretes com Strada. Todos os direitos reservados.</p>
+          <p>Fiat Strada cabine simples • Fretes locais a partir de R$ 50</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
