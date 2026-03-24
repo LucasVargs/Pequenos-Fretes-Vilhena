@@ -1,195 +1,634 @@
-export default function FreteStradaSite() {
-  return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
-      <header className="bg-white/95 backdrop-blur border-b border-slate-200 sticky top-0 z-20">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div>
-            <h1 className="text-xl md:text-2xl font-bold tracking-tight">Fretes com Strada</h1>
-            <p className="text-sm text-slate-600">Serviço local • Fiat Strada cabine simples</p>
-          </div>
-          <a
-            href="#contato"
-            className="rounded-2xl px-4 py-2 text-sm font-semibold shadow-sm border border-slate-300 hover:bg-slate-100 transition"
-          >
-            Solicitar orçamento
-          </a>
-        </div>
-      </header>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Pequenos Fretes Vilhena | Fiat Strada | Frete Local R$ 50</title>
+    <!-- Google Fonts para uma tipografia moderna e limpa -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (CDN gratuita) para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      <section className="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <span className="inline-flex items-center rounded-full border border-slate-300 px-3 py-1 text-sm font-medium text-slate-700 bg-white">
-            Fretes a partir de R$ 50
-          </span>
-          <h2 className="mt-5 text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
-            Frete rápido, prático e com preço justo na sua cidade
-          </h2>
-          <p className="mt-5 text-lg text-slate-600 leading-8">
-            Faço fretes locais com <strong>Fiat Strada cabine simples</strong>, ideal para pequenas mudanças,
-            entrega de móveis, eletrodomésticos, materiais e encomendas em geral.
-          </p>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f7fc;
+            color: #1e2a3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <a
-              href="#contato"
-              className="rounded-2xl px-6 py-3 text-base font-semibold shadow-lg bg-slate-900 text-white hover:opacity-90 transition text-center"
-            >
-              Pedir orçamento agora
-            </a>
-            <a
-              href="#servicos"
-              className="rounded-2xl px-6 py-3 text-base font-semibold border border-slate-300 bg-white hover:bg-slate-100 transition text-center"
-            >
-              Ver serviços
-            </a>
-          </div>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-          <div className="mt-10 grid grid-cols-3 gap-4">
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-              <p className="text-2xl font-bold">R$ 50+</p>
-              <p className="text-sm text-slate-600 mt-1">Preço inicial</p>
+        /* cabeçalho / hero */
+        .hero {
+            background: linear-gradient(135deg, #0b2b40 0%, #1b4f3b 100%);
+            color: white;
+            padding: 48px 0 56px;
+            border-bottom-left-radius: 32px;
+            border-bottom-right-radius: 32px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero-text h1 span {
+            color: #f9b81b;
+            display: inline-block;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 24px;
+            max-width: 550px;
+        }
+
+        .price-badge {
+            background: #f9b81b;
+            color: #1e2a3e;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .price-badge i {
+            margin-right: 8px;
+        }
+
+        .hero-image {
+            background: rgba(255,255,255,0.1);
+            border-radius: 32px;
+            padding: 16px 24px;
+            backdrop-filter: blur(2px);
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 280px;
+            width: 100%;
+            filter: drop-shadow(4px 6px 10px rgba(0,0,0,0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-image p {
+            font-size: 0.9rem;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* seção principais diferenciais */
+        .features {
+            padding: 56px 0 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            color: #0b2b40;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: #f9b81b;
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 28px 20px;
+            flex: 1 1 280px;
+            text-align: center;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+            transition: all 0.25s ease;
+            border: 1px solid #e2edf2;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 28px rgba(0,0,0,0.1);
+        }
+
+        .card i {
+            font-size: 2.8rem;
+            color: #1b4f3b;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #2c4b5a;
+            font-weight: 500;
+        }
+
+        /* área do orçamento (formulário) */
+        .budget-section {
+            background: #e9f0f3;
+            border-radius: 48px;
+            margin: 40px 0 60px;
+            padding: 48px 32px;
+            box-shadow: 0 12px 20px rgba(0,0,0,0.05);
+        }
+
+        .budget-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .budget-info {
+            flex: 1;
+            min-width: 240px;
+        }
+
+        .budget-info h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: #0b2b40;
+        }
+
+        .budget-info .highlight {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: #1b4f3b;
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 40px;
+            color: white;
+            margin: 12px 0;
+        }
+
+        .budget-info ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .budget-info li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .budget-info li i {
+            color: #f9b81b;
+            width: 24px;
+            font-size: 1.2rem;
+        }
+
+        .form-card {
+            flex: 1.4;
+            background: white;
+            border-radius: 32px;
+            padding: 32px;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+            color: #1e2a3e;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ccdee4;
+            border-radius: 24px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: 0.2s;
+            background: #fefefe;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #f9b81b;
+            box-shadow: 0 0 0 3px rgba(249,184,27,0.2);
+        }
+
+        .btn-submit {
+            background: #1b4f3b;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 40px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            background: #0f3a2b;
+            transform: scale(0.98);
+        }
+
+        .message-feedback {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 60px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .success-msg {
+            background: #dff0e2;
+            color: #1a5a38;
+            border-left: 6px solid #2e7d32;
+        }
+
+        .error-msg {
+            background: #ffe6e5;
+            color: #b91c1c;
+            border-left: 6px solid #d32f2f;
+        }
+
+        /* rodapé */
+        footer {
+            background: #0b2b40;
+            color: #d9e6ed;
+            padding: 32px 0;
+            text-align: center;
+            border-top-left-radius: 28px;
+            border-top-right-radius: 28px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-logo i {
+            font-size: 1.8rem;
+            margin-right: 8px;
+            color: #f9b81b;
+        }
+
+        .whatsapp-link {
+            background: #25D366;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 24px;
+            border-radius: 40px;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .whatsapp-link:hover {
+            background: #128C7E;
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 780px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .budget-section {
+                padding: 28px 20px;
+            }
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-content {
+                flex-direction: column;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+
+        /* mapa simbólico de localidades */
+        .local-tag {
+            background: #fff;
+            border-radius: 48px;
+            padding: 12px 20px;
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .local-tag span {
+            background: #eef2f5;
+            padding: 6px 16px;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .local-tag i {
+            color: #f9b81b;
+            margin-right: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="container hero-content">
+        <div class="hero-text">
+            <h1>PEQUENOS FRETES <span>VILHENA</span></h1>
+            <p>Transporte ágil e seguro com nossa <strong>Fiat Strada Cabine Simples</strong>. Ideal para mudanças pequenas, entregas, compras e cargas leves.</p>
+            <div class="price-badge">
+                <i class="fas fa-truck-fast"></i> A partir de R$ 50,00 *
             </div>
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-              <p className="text-2xl font-bold">Local</p>
-              <p className="text-sm text-slate-600 mt-1">Atendimento na região</p>
+            <div class="local-tag" style="margin-top: 24px;">
+                <span><i class="fas fa-map-marker-alt"></i> Vilhena (centro/bairros)</span>
+                <span><i class="fas fa-road"></i> Cidades vizinhas: Colorado, Chupinguaia, Pimenta Bueno</span>
+                <span><i class="fas fa-city"></i> + regiões rurais próximas</span>
             </div>
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-              <p className="text-2xl font-bold">Rápido</p>
-              <p className="text-sm text-slate-600 mt-1">Agendamento fácil</p>
-            </div>
-          </div>
         </div>
-
-        <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-100 rounded-[2rem] blur-2xl opacity-60" />
-          <div className="relative bg-white rounded-[2rem] border border-slate-200 shadow-xl p-6 md:p-8">
-            <div className="rounded-[1.5rem] border border-dashed border-slate-300 bg-slate-50 p-8 min-h-[360px] flex flex-col justify-center">
-              <div className="text-6xl mb-4">🚚</div>
-              <h3 className="text-2xl font-bold">Fiat Strada cabine simples</h3>
-              <p className="mt-3 text-slate-600 leading-7">
-                Ideal para fretes rápidos, transporte de mercadorias e pequenas mudanças com atendimento direto e sem burocracia.
-              </p>
-              <ul className="mt-6 space-y-3 text-slate-700">
-                <li>✔ Entregas locais</li>
-                <li>✔ Pequenas mudanças</li>
-                <li>✔ Transporte de móveis e eletrodomésticos</li>
-                <li>✔ Atendimento com orçamento rápido</li>
-              </ul>
-            </div>
-          </div>
+        <div class="hero-image">
+            <!-- Imagem ilustrativa da Fiat Strada cabine simples (SVG simbólica e realista) -->
+            <svg viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg" style="max-width: 260px;">
+                <rect width="300" height="180" fill="none" />
+                <!-- corpo cabine simples -->
+                <rect x="30" y="70" width="170" height="55" rx="8" fill="#2C5F2D" stroke="#1F3B1F" stroke-width="2" />
+                <rect x="30" y="70" width="100" height="55" rx="8" fill="#3C7840" />
+                <rect x="140" y="70" width="60" height="55" rx="6" fill="#2F6B31" />
+                <!-- cabine -->
+                <rect x="30" y="40" width="80" height="35" rx="6" fill="#5F8B6F" />
+                <rect x="40" y="30" width="20" height="18" fill="#AAD0D9" rx="3" />
+                <rect x="70" y="30" width="20" height="18" fill="#AAD0D9" rx="3" />
+                <!-- caçamba -->
+                <rect x="195" y="70" width="70" height="55" rx="6" fill="#3C7840" />
+                <line x1="195" y1="90" x2="265" y2="90" stroke="#F9B81B" stroke-width="2" stroke-dasharray="4 2"/>
+                <circle cx="55" cy="117" r="12" fill="#222" stroke="#111" stroke-width="2" />
+                <circle cx="240" cy="117" r="12" fill="#222" stroke="#111" stroke-width="2" />
+                <text x="120" y="150" font-size="10" fill="white" font-weight="bold">Fiat Strada</text>
+                <text x="210" y="140" font-size="9" fill="#FFD966">Cabine Simples</text>
+            </svg>
+            <p><i class="fas fa-check-circle"></i> Frota própria · Atendimento rápido</p>
         </div>
-      </section>
-
-      <section id="servicos" className="bg-white border-y border-slate-200">
-        <div className="max-w-6xl mx-auto px-4 py-16">
-          <div className="max-w-2xl">
-            <h3 className="text-3xl md:text-4xl font-bold tracking-tight">Serviços</h3>
-            <p className="mt-3 text-slate-600 text-lg">
-              Atendimento para quem precisa de um frete local com agilidade e segurança.
-            </p>
-          </div>
-
-          <div className="mt-10 grid md:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'Pequenas mudanças',
-                text: 'Transporte de poucos itens, caixas, móveis desmontados e objetos do dia a dia.',
-              },
-              {
-                title: 'Entrega de móveis e eletrodomésticos',
-                text: 'Levo sofá, cama, geladeira, fogão, máquina de lavar e outros itens de pequeno e médio porte.',
-              },
-              {
-                title: 'Mercadorias e encomendas',
-                text: 'Frete para lojas, materiais, compras e entregas rápidas dentro da cidade e região próxima.',
-              },
-            ].map((item) => (
-              <div key={item.title} className="rounded-3xl p-6 border border-slate-200 shadow-sm bg-slate-50">
-                <h4 className="text-xl font-bold">{item.title}</h4>
-                <p className="mt-3 text-slate-600 leading-7">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="rounded-3xl bg-slate-900 text-white p-8 shadow-xl">
-            <h3 className="text-3xl font-bold tracking-tight">Por que contratar?</h3>
-            <div className="mt-6 space-y-4 text-slate-200">
-              <p>• Atendimento direto com quem faz o frete</p>
-              <p>• Orçamento rápido e sem enrolação</p>
-              <p>• Preço inicial acessível</p>
-              <p>• Agilidade para fretes locais</p>
-            </div>
-          </div>
-
-          <div className="rounded-3xl bg-white border border-slate-200 p-8 shadow-sm">
-            <h3 className="text-3xl font-bold tracking-tight">Como funciona</h3>
-            <div className="mt-6 space-y-5">
-              <div>
-                <p className="font-semibold">1. Envie sua solicitação</p>
-                <p className="text-slate-600 mt-1">Informe o item, o local de coleta e o destino.</p>
-              </div>
-              <div>
-                <p className="font-semibold">2. Receba o orçamento</p>
-                <p className="text-slate-600 mt-1">O valor é calculado conforme distância, volume e dificuldade de carregamento.</p>
-              </div>
-              <div>
-                <p className="font-semibold">3. Agende o frete</p>
-                <p className="text-slate-600 mt-1">Combinamos o melhor horário para coleta e entrega.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contato" className="bg-slate-900 text-white">
-        <div className="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <h3 className="text-3xl md:text-4xl font-bold tracking-tight">Peça seu orçamento</h3>
-            <p className="mt-4 text-slate-300 text-lg leading-8">
-              Fretes locais com atendimento rápido. Entre em contato para consultar disponibilidade e valor.
-            </p>
-          </div>
-
-          <div className="bg-white text-slate-900 rounded-3xl p-6 md:p-8 shadow-2xl">
-            <div className="space-y-4">
-              <div>
-                <p className="text-sm font-medium text-slate-500">WhatsApp</p>
-                <p className="text-xl font-bold">(SEU NÚMERO AQUI)</p>
-              </div>
-              <div>
-                <p className="text-sm font-medium text-slate-500">Área de atendimento</p>
-                <p className="text-lg font-semibold">Sua cidade e região</p>
-              </div>
-              <div>
-                <p className="text-sm font-medium text-slate-500">Valor inicial</p>
-                <p className="text-lg font-semibold">Fretes a partir de R$ 50</p>
-              </div>
-            </div>
-
-            <a
-              href="https://wa.me/5500000000000"
-              className="mt-6 inline-block w-full text-center rounded-2xl px-6 py-3 text-base font-semibold shadow-lg bg-slate-900 text-white hover:opacity-90 transition"
-            >
-              Chamar no WhatsApp
-            </a>
-
-            <p className="mt-4 text-sm text-slate-500 leading-6">
-              Substitua o número do WhatsApp e a cidade pelas suas informações reais antes de publicar.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <footer className="bg-slate-950 text-slate-400">
-        <div className="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row gap-2 md:items-center md:justify-between">
-          <p>© 2026 Fretes com Strada. Todos os direitos reservados.</p>
-          <p>Fiat Strada cabine simples • Fretes locais a partir de R$ 50</p>
-        </div>
-      </footer>
     </div>
-  );
-}
+</section>
+
+<div class="container">
+    <!-- diferenciais -->
+    <div class="features">
+        <h2 class="section-title">Por que escolher nossos fretes?</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <i class="fas fa-dollar-sign"></i>
+                <h3>R$ 50 + acessível</h3>
+                <p>Frete local a partir de R$ 50, sem surpresas. Orçamento justo e sem taxas escondidas.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-truck-ramp-box"></i>
+                <h3>Strada versátil</h3>
+                <p>Cabine simples com caçamba espaçosa para móveis pequenos, eletros, mercadorias e entulhos.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-city"></i>
+                <h3>Vilhena + região</h3>
+                <p>Atendemos toda área urbana e cidades vizinhas: Colorado do Oeste, Cerejeiras e mais.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-clock"></i>
+                <h3>Agilidade</h3>
+                <p>Compromisso com horários, carregamento cuidadoso e entregas no mesmo dia.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- seção orçamento -->
+    <div class="budget-section" id="orcamento">
+        <div class="budget-wrapper">
+            <div class="budget-info">
+                <h2>Solicite seu orçamento</h2>
+                <p>Preencha o formulário e em poucos minutos retornamos com valor exato e disponibilidade.</p>
+                <div class="highlight"><i class="fas fa-tag"></i> Frete Local: R$50*</div>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Cidades vizinhas: consulte valor diferenciado</li>
+                    <li><i class="fas fa-weight-hanging"></i> Carga leve/média até 650kg</li>
+                    <li><i class="fas fa-calendar-alt"></i> Atendimento de seg a sábado</li>
+                </ul>
+                <div style="margin-top: 24px;">
+                    <i class="fab fa-whatsapp" style="color:#25D366; font-size: 1.6rem;"></i>
+                    <strong> Ou chame direto: (69) 9 9999-1234</strong>
+                </div>
+            </div>
+            <div class="form-card">
+                <h3 style="margin-bottom: 24px; font-size: 1.6rem;">📦 Peça seu orçamento</h3>
+                <form id="budgetForm">
+                    <div class="form-group">
+                        <label for="nome">Nome completo *</label>
+                        <input type="text" id="nome" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp / Telefone *</label>
+                        <input type="tel" id="whatsapp" placeholder="(69) 9 9999-9999" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipoFrete">Tipo de frete *</label>
+                        <select id="tipoFrete" required>
+                            <option value="">Selecione...</option>
+                            <option value="local">Frete local (Vilhena - a partir R$50)</option>
+                            <option value="vizinha">Cidade vizinha (Colorado, Chupinguaia, Pimenta Bueno etc)</option>
+                            <option value="outro">Região rural / outro destino</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="endereco">Endereço de coleta e destino (descrição rápida) *</label>
+                        <textarea id="endereco" rows="2" placeholder="Ex: Centro, próximo ao mercado, até Bairro Jardim América" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="carga">Descreva a carga ou serviço *</label>
+                        <textarea id="carga" rows="2" placeholder="Ex: uma geladeira, dois colchões, caixas de mudança..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit"><i class="fab fa-whatsapp"></i> Enviar & receber orçamento</button>
+                    <div id="formFeedback" class="message-feedback"></div>
+                </form>
+                <p style="font-size: 0.75rem; margin-top: 18px; text-align: center;">*Valor mínimo para trajetos dentro de Vilhena, sujeito à análise de volume e distância. Cidades vizinhas sob consulta.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-logo">
+            <i class="fas fa-truck"></i> Pequenos Fretes Vilhena - Fiat Strada
+        </div>
+        <div>
+            <p><i class="fas fa-map-pin"></i> Atendemos Vilhena e cidades do Cone Sul</p>
+            <p><i class="fas fa-phone-alt"></i> (69) 9 9999-1234 | contato@pequenosfretesvilhena.com.br</p>
+        </div>
+        <a href="https://wa.me/5569999991234?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20frete%20com%20a%20Strada" target="_blank" class="whatsapp-link">
+            <i class="fab fa-whatsapp fa-lg"></i> Orçamento rápido
+        </a>
+    </div>
+    <p style="margin-top: 28px; font-size: 0.8rem;">© 2025 Pequenos Fretes Vilhena – Transporte confiável e ágil</p>
+</footer>
+
+<script>
+    (function() {
+        const form = document.getElementById('budgetForm');
+        const feedbackDiv = document.getElementById('formFeedback');
+
+        // função para mostrar mensagem de sucesso ou erro
+        function showMessage(message, isSuccess) {
+            feedbackDiv.style.display = 'block';
+            feedbackDiv.textContent = message;
+            feedbackDiv.className = `message-feedback ${isSuccess ? 'success-msg' : 'error-msg'}`;
+            // rolagem suave para o feedback
+            feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // função para limpar mensagem depois de alguns segundos
+        function clearMessageAfter(ms = 5000) {
+            setTimeout(() => {
+                if (feedbackDiv) {
+                    feedbackDiv.style.display = 'none';
+                }
+            }, ms);
+        }
+
+        // simulação de envio: monta uma mensagem personalizada para whatsapp (experiência integrada)
+        function sendToWhatsApp(formData) {
+            const nome = formData.nome.trim();
+            const telefone = formData.whatsapp.trim();
+            const tipoFrete = formData.tipoFrete;
+            const endereco = formData.endereco.trim();
+            const carga = formData.carga.trim();
+
+            let tipoTexto = '';
+            if (tipoFrete === 'local') tipoTexto = 'Frete local (Vilhena - a partir R$50)';
+            else if (tipoFrete === 'vizinha') tipoTexto = 'Cidade vizinha (orçamento especial)';
+            else tipoTexto = 'Região rural / outro destino';
+
+            const mensagem = `Olá! Sou ${nome}, gostaria de um ORÇAMENTO para frete.%0A%0A` +
+                             `*Tipo:* ${tipoTexto}%0A` +
+                             `*Endereço/trecho:* ${endereco}%0A` +
+                             `*Carga:* ${carga}%0A` +
+                             `*Contato:* ${telefone}%0A%0A` +
+                             `Favor retornar com valor e disponibilidade.`;
+
+            // número do whatsapp da empresa (coloque o número real do negócio)
+            // aqui usamos o mesmo do rodapé, mas pode-se alterar para um número comercial
+            const phoneNumber = '5569999991234';   // Número da empresa
+            const url = `https://wa.me/${phoneNumber}?text=${mensagem}`;
+            window.open(url, '_blank');
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // capturar campos
+            const nome = document.getElementById('nome').value.trim();
+            const whatsapp = document.getElementById('whatsapp').value.trim();
+            const tipoFrete = document.getElementById('tipoFrete').value;
+            const endereco = document.getElementById('endereco').value.trim();
+            const carga = document.getElementById('carga').value.trim();
+
+            // validações básicas
+            if (!nome || !whatsapp || !tipoFrete || !endereco || !carga) {
+                showMessage('❌ Por favor, preencha todos os campos obrigatórios.', false);
+                clearMessageAfter(4000);
+                return;
+            }
+
+            if (whatsapp.length < 10) {
+                showMessage('⚠️ Informe um telefone válido com DDD (ex: 69 99999-1234).', false);
+                clearMessageAfter(4000);
+                return;
+            }
+
+            // monta objeto com dados
+            const formData = {
+                nome: nome,
+                whatsapp: whatsapp,
+                tipoFrete: tipoFrete,
+                endereco: endereco,
+                carga: carga
+            };
+
+            // exibe mensagem de sucesso e envia para WhatsApp simulando integração
+            showMessage('✅ Solicitação enviada! Você será redirecionado para o WhatsApp para concluir o orçamento.', true);
+            
+            // após 1 segundo, abrir WhatsApp com os dados
+            setTimeout(() => {
+                sendToWhatsApp(formData);
+            }, 800);
+            
+            // limpar formulário? opcional, mas não resetamos para o usuário poder ver o que enviou.
+            // após alguns segundos limpar a mensagem
+            clearMessageAfter(6000);
+            
+            // opcional: reset não total, mas podemos deixar os campos preenchidos.
+            // se quiser resetar (descomente a linha abaixo)
+            // form.reset();
+            // porém, não resetamos para caso precise ajustar, mas reset pode ser melhor após envio, mantemos assim.
+        });
+    })();
+</script>
+</body>
+</html>
